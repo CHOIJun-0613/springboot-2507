@@ -1,0 +1,119 @@
+# ===============================================================
+# 공통 설정 (Default Profile)
+# 모든 프로필에 기본으로 적용되는 설정입니다.
+# ===============================================================
+server:
+  port: 8010 # 애플리케이션 실행 포트
+  servlet:
+    #context-path: /api # 애플리케이션의 Context Path
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  compression: # HTTP 응답 압축 설정
+    enabled: true
+    min-response-size: 2048 # 2KB 이상일 때만 압축
+    mime-types: application/json,text/html,text/xml,text/plain
+
+spring:
+  application:
+    name: demo # 애플리케이션 이름
+
+#   # --- 데이터베이스 설정 (운영 DB 기준) ---
+#   datasource:
+#     driver-class-name: com.mysql.cj.jdbc.Driver
+#     url: jdbc:mysql://prod-db-host:3306/mydatabase?useSSL=false&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
+#     username: prod_user
+#     # !! 중요: 비밀번호는 직접 작성하지 말고 환경변수나 Vault 같은 외부 시스템을 통해 주입하는 것이 안전합니다.
+#     password: ${DB_PASSWORD} # 환경변수 DB_PASSWORD를 참조
+#     hikari: # HikariCP Connection Pool 설정
+#       maximum-pool-size: 10
+#       connection-timeout: 30000
+#       idle-timeout: 600000
+
+#   # --- JPA & Hibernate 설정 ---
+#   jpa:
+#     hibernate:
+#       # ddl-auto: [create | create-drop | update | validate | none]
+#       # prod 환경에서는 보통 validate 또는 none을 사용합니다.
+#       ddl-auto: validate
+#     show-sql: false # SQL 쿼리를 로그로 보여줄지 여부
+#     properties:
+#       hibernate:
+#         format_sql: false # SQL을 예쁘게 포맷팅
+#         default_batch_fetch_size: 100 # N+1 문제 완화를 위한 설정
+#     open-in-view: false # OSIV(Open Session In View) 설정, 성능을 위해 false 권장
+
+# --- 로깅 설정 ---
+logging:
+  level:
+    root: INFO # 전체적인 로깅 레벨
+    org.springframework.web: INFO
+    org.hibernate.SQL: OFF # JPA SQL 로깅은 p6spy 등으로 대체하는 것을 권장
+    com.zaxxer.hikari: INFO
+    # 개발중인 패키지는 DEBUG로 설정하여 상세 로그 확인
+    com.myapp.package: DEBUG
+  file:
+    name: logs/app.log # 로그 파일 경로 및 이름
+
+---
+
+# # ===============================================================
+# # 개발(development) 프로필
+# # spring.config.activate.on-profile: dev
+# # ===============================================================
+# spring:
+#   config:
+#     activate:
+#       on-profile: "dev"
+
+#   # --- 개발용 인메모리 H2 데이터베이스 설정 ---
+#   datasource:
+#     driver-class-name: org.h2.Driver
+#     url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+#     username: sa
+#     password:
+
+#   # --- H2 Console 활성화 ---
+#   h2:
+#     console:
+#       enabled: true
+#       path: /h2-console
+
+#   jpa:
+#     hibernate:
+#       ddl-auto: create-drop # 애플리케이션 시작시 스키마 생성, 종료시 삭제
+#     show-sql: true
+#     properties:
+#       hibernate:
+#         format_sql: true
+
+# logging:
+#   level:
+#     root: DEBUG
+#     org.hibernate.SQL: DEBUG # 개발 시에는 SQL 로그를 직접 확인
+
+# ---
+
+# # ===============================================================
+# # 로컬(local) 프로필 - 로컬 PC에 설치된 DB 사용 시
+# # spring.config.activate.on-profile: local
+# # ===============================================================
+# spring:
+#   config:
+#     activate:
+#       on-profile: "local"
+
+#   datasource:
+#     driver-class-name: com.mysql.cj.jdbc.Driver
+#     url: jdbc:mysql://localhost:3306/mydatabase?useSSL=false&serverTimezone=Asia/Seoul
+#     username: root
+#     password: local_password # 로컬 테스트용 비밀번호
+
+#   jpa:
+#     hibernate:
+#       ddl-auto: update # 엔티티 변경점을 감지하여 스키마에 반영
+#     show-sql: true
+#     properties:
+#       hibernate:
+#         format_sql: true
