@@ -49,12 +49,12 @@ logging:
   level:
     root: INFO # 전체적인 로깅 레벨
     org.springframework.web: INFO
-    org.hibernate.SQL: OFF # JPA SQL 로깅은 p6spy 등으로 대체하는 것을 권장
-    com.zaxxer.hikari: INFO
+    #org.hibernate.SQL: OFF # JPA SQL 로깅은 p6spy 등으로 대체하는 것을 권장
+    #com.zaxxer.hikari: INFO
     # 개발중인 패키지는 DEBUG로 설정하여 상세 로그 확인
-    com.myapp.package: DEBUG
-  file:
-    name: logs/app.log # 로그 파일 경로 및 이름
+    com.example.demo: DEBUG
+#  file:
+#    name: logs/app.log # 로그 파일 경로 및 이름
 
 ---
 
