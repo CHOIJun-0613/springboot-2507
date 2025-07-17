@@ -19,7 +19,7 @@ public class PostController {
     }
     @GetMapping("/update")
     public String updatePost(@RequestParam String postId){
-        return postId + "번 블로그 수정 페이지입니다.....";
+        return postId + "번 블로그 수정 페이지입니다.";
     }
 
 }

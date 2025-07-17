@@ -14,9 +14,9 @@ java {
 }
 
 // Lombok 버전을 명시적으로 지정
-ext {
-    set('lombok.version', '1.18.38')
-}
+//ext {
+//    set('lombok.version', '1.18.38')
+//}
 
 configurations {
 	compileOnly {
@@ -45,4 +45,5 @@ tasks.named('test') {
 // 모든 Java 컴파일 작업에 인코딩을 UTF-8로 설정
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
+	options.compilerArgs.add '-parameters'
 }
