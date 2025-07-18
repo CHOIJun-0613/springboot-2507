@@ -1,5 +1,7 @@
 # Gemini Project Context: Spring Boot Demo
 
+## 사용 언어 : 한국어
+ 
 이 문서는 Gemini가 이 프로젝트를 이해하는 데 도움을 주기 위해 작성되었습니다.
 
 ## 프로젝트 개요
