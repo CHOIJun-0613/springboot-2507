@@ -12,12 +12,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+@Data 
 @NoArgsConstructor
-@Builder
-@AllArgsConstructor
+@AllArgsConstructor 
 @Entity
+@Builder
 public class Post{
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID postId;

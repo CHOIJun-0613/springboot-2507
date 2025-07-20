@@ -1,3 +1,4 @@
+
 # ===============================================================
 # 공통 설정 (Default Profile)
 # 모든 프로필에 기본으로 적용되는 설정입니다.
@@ -49,7 +50,7 @@ spring:
     # jdbc:h2:mem:testdb -> 애플리케이션이 실행되는 동안 메모리에서만 유지되는 데이터베이스를 생성합니다.
     # DB_CLOSE_DELAY=-1 -> 마지막 커넥션이 닫혀도 데이터베이스를 유지합니다.
     # DB_CLOSE_ON_EXIT=FALSE -> JVM이 종료될 때 데이터베이스를 닫지 않습니다. (메모리 DB에서는 생략 가능)
-    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:mem:testdb;
     username: sa # H2 데이터베이스 접속 계정입니다.
     password: # H2 데이터베이스 접속 비밀번호입니다. (기본값: 없음)
 
@@ -98,3 +99,5 @@ spring:
     properties:
       hibernate:
         format_sql: true # SQL 쿼리를 보기 좋게 정렬합니다.
+---
+
