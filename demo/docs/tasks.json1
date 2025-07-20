@@ -1,0 +1,24 @@
+
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run Spring Boot (dev profile)",
+            "type": "shell",
+            "command": ".\\gradlew.bat",
+            "args": [
+                "bootRun",
+                "--args='--spring.profiles.active=dev'"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "detail": "Runs the Spring Boot application with the 'dev' profile active."
+        }
+    ]
+}

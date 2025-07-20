@@ -21,3 +21,8 @@
 - `src/main/java/com/example/demo/model/Post.java`: 게시물을 나타내는 데이터 모델입니다.
 - `build.gradle`: 프로젝트의 의존성 및 빌드 구성을 정의합니다.
 - `src/main/resources/application.yml`: 애플리케이션의 설정을 정의합니다.
+
+** 어플리케이션 실행 조건
+- Windows OS를 사용하고 있음.
+- 어플리케이션을 실행할 때는 반드시 Background로 실행시킬 것.
+- 어플리케이션을 실행할 때는 application.yml에 기술된 server port를 확인하고 그 port를 사용하고 있는 어플리케이션이 있다면 그 프로세르를 kill시키고 실행할 것.

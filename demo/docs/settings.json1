@@ -1,0 +1,15 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-21",
+            "path": "C:\\jdk-21.0.2",
+            "default": true
+        }
+    ],
+    "cSpell.words": [
+        "projectlombok",
+        "springframework"
+    ]
+}
