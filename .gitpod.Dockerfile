@@ -8,9 +8,11 @@ RUN sudo apt-get update && \
     sudo rm -rf /var/lib/apt/lists/*
 
 RUN sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
+
 RUN bash -c ". /home/gitpod/.sdkman/bin/sdkman-init.sh && \
-    sdk install java 24-open && \
-    sdk default java 24-open"
+    sdk install java 21-term && \
+    sdk default java 21-term"
+
 RUN bash -c ". /home/gitpod/.sdkman/bin/sdkman-init.sh && \
     sdk install gradle 8.14 && \
     sdk default gradle 8.14"
