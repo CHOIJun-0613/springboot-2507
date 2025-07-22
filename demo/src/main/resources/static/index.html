@@ -44,7 +44,6 @@
                 <p class="card-text">아래 버튼을 클릭하여 API를 테스트하세요.</p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                     <button class="btn btn-primary" onclick="fetchList()">전체 목록 조회</button>
-                    <button class="btn btn-success" onclick="fetchInitData()">데이터 초기화</button>
                     <button class="btn btn-info" onclick="fetchDetail()">특정 게시물 조회</button>
                     <button class="btn btn-warning" onclick="fetchUpdate()">게시물 수정 (임시)</button>
                     <button class="btn btn-danger" onclick="clearResult()">결과 지우기</button>
@@ -153,17 +152,6 @@
                 } catch (error) {
                     resultDiv.textContent = `Error: ${error}`;
                 }
-            }
-        }
-
-        async function fetchInitData() {
-            try {
-                const response = await fetch('/posts/initdata');
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                const data = await response.json();
-                displayResults(data);
-            } catch (error) {
-                resultDiv.textContent = `Error: ${error}`;
             }
         }
     </script>

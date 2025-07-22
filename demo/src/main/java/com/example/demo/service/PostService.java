@@ -5,9 +5,11 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.model.Post;
 import com.example.demo.repository.PostRepository;
+
 
 import lombok.RequiredArgsConstructor;
 
@@ -29,10 +31,6 @@ public class PostService {
         postRepository.save(new Post(UUID.randomUUID(), "첫 번째 블로그", "블로그 내용 1", "작성자1", LocalDateTime.now()));
         postRepository.save(new Post(UUID.randomUUID(), "두 번째 블로그", "블로그 내용 2", "작성자2", LocalDateTime.now()));
         postRepository.save(new Post(UUID.randomUUID(), "세 번째 블로그", "블로그 내용 3", "작성자3", LocalDateTime.now()));
-    }
-
-    public long getDataCount() {
-        return  postRepository.count();
     }
 
 }

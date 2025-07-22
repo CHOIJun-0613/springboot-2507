@@ -26,4 +26,5 @@ public class Post{
     private String contents;
     private String author;
     private LocalDateTime createdDateTime;
+
 }

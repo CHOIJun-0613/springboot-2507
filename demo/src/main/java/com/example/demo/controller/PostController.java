@@ -30,9 +30,6 @@ public class PostController {
             new Post(UUID.randomUUID(), "세 번째 블로그", "블로그 내용 3", "작성자3", LocalDateTime.now())
         );  
         */ 
-        if(postService.getDataCount() < 1){
-            postService.initData();
-        }
         return postService.postList();
     }
     @GetMapping("/{postId}")
@@ -42,10 +39,5 @@ public class PostController {
     @GetMapping("/update")
     public Post updatePost(@RequestParam String postId){
         return new Post(UUID.randomUUID(), "수정된 블로그 제목", "수정된 블로그 내용", "작성자", LocalDateTime.now());
-    }
-    @GetMapping("/initdata")
-    public List<Post> initData(){
-        postService.initData();
-        return postService.postList();
     }
 }
