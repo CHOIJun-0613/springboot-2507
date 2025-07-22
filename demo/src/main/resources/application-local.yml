@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: demo-local # 애플리케이션의 이름을 지정합니다.
+  # --- 개발용 인메모리 H2 데이터베이스 설정 ---
+  datasource:
+    driver-class-name: org.h2.Driver # H2 데이터베이스 드라이버 클래스입니다.
+    # jdbc:h2:mem:testdb -> 애플리케이션이 실행되는 동안 메모리에서만 유지되는 데이터베이스를 생성합니다.
+    # DB_CLOSE_DELAY=-1 -> 마지막 커넥션이 닫혀도 데이터베이스를 유지합니다.
+    # DB_CLOSE_ON_EXIT=FALSE -> JVM이 종료될 때 데이터베이스를 닫지 않습니다. (메모리 DB에서는 생략 가능)
+    url: jdbc:h2:mem:testdb;
+    username: sa # H2 데이터베이스 접속 계정입니다.
+    password: # H2 데이터베이스 접속 비밀번호입니다. (기본값: 없음)
+
+  # --- H2 Console 활성화 ---
+  h2:
+    console:
+      enabled: true # 개발 편의를 위해 H2 데이터베이스 웹 콘솔을 활성화합니다.
+      path: /h2-console # H2 콘솔에 접근할 경로입니다. (http://localhost:8081/h2-console)
+      settings:
+        web-allow-others: true # H2 Console 원격 접속 허용 설정
+  # --- 개발용 JPA 및 Hibernate 설정 ---
+  jpa:
+    show-sql: true # 실행되는 모든 JPA(Hibernate) SQL 쿼리를 콘솔에 출력합니다.
+    hibernate:
+      # ddl-auto: [create | create-drop | update | validate | none]
+      # create-drop: 애플리케이션 시작 시 스키마를 새로 생성하고, 종료 시 삭제합니다. 개발용으로 적합합니다.
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true # 콘솔에 출력되는 SQL 쿼리를 보기 좋게 정렬합니다.
+
+
+# --- 로깅 설정 ---
+logging:
+  level:
+    root: INFO # 전체 로깅 레벨의 기본값입니다.
+    '[org.springframework.web]': INFO # Spring Web MVC 관련 로그 레벨을 설정합니다.
+    '[com.example.demo]': DEBUG # 개발 중인 애플리케이션 패키지의 로그 레벨을 DEBUG로 설정하여 상세한 로그를 확인합니다.
+

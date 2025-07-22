@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: demo-dev # 애플리케이션의 이름을 지정합니다.
+  # --- 개발용 MySQL 데이터베이스 설정 ---
+  # --- 로컬 MySQL 데이터베이스 설정 예시 ---
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver # MySQL 데이터베이스 드라이버 클래스입니다.
+    url: jdbc:mysql://localhost:3306/devdb?useSSL=false&serverTimezone=Asia/Seoul # 개발환경 MySQL 서버 접속 주소입니다.
+    username: mysqluser # 로컬 MySQL 접속 계정입니다.
+    password: '#skcc06433' # 로컬 MySQL 접속 비밀번호입니다.
+
+  # --- 로컬용 JPA 및 Hibernate 설정 ---
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect # MySQL 8.x 버전에 맞는 Hibernate 방언을 설정합니다.
+    hibernate:
+      ddl-auto: update # JPA가 데이터베이스 스키마를 자동으로 업데이트하도록 설정합니다.
+    show-sql: true # SQL 쿼리를 콘솔에 출력합니다.
+    properties:
+      hibernate:
+        format_sql: true # SQL 쿼리를 포맷하여 가독성을 높입니다.
+
+# --- 로깅 설정 ---
+logging:
+  level:
+    root: INFO # 전체 로깅 레벨의 기본값입니다.
+    '[org.springframework.web]': INFO # Spring Web MVC 관련 로그 레벨을 설정합니다.
+    '[com.example.demo]': DEBUG # 개발 중인 애플리케이션 패키지의 로그 레벨을 DEBUG로 설정하여 상세한 로그를 확인합니다.
+
