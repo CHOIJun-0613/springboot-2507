@@ -31,4 +31,8 @@ public class PostService {
         postRepository.save(new Post(UUID.randomUUID(), "세 번째 블로그", "블로그 내용 3", "작성자3", LocalDateTime.now()));
     }
 
+    public long getDataCount() {
+        return  postRepository.count();
+    }
+
 }
