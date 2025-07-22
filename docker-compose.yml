@@ -6,10 +6,10 @@ services:
     container_name: mysql-container
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: springbootDB
-      MYSQL_USER: springboot
-      MYSQL_PASSWORD: springboot
+      MYSQL_ROOT_PASSWORD: '#skcc06433'
+      MYSQL_DATABASE: devdb
+      MYSQL_USER: mysqluser
+      MYSQL_PASSWORD: '#skcc06433'
     volumes:
       - mysql_data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
