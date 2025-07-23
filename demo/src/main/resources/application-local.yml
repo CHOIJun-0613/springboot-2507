@@ -30,6 +30,16 @@ spring:
         format_sql: true # 콘솔에 출력되는 SQL 쿼리를 보기 좋게 정렬합니다.
 
 
+# --- MyBatis 설정 추가 ---
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/h2/**/*.xml # 매퍼 XML 파일 위치
+  type-handlers-package: com.example.demo.mapper.typehandler # 사용자 정의 타입 핸들러 패키지
+  type-aliases-package: com.example.demo.model # 도메인 모델 패키지
+  configuration:
+    map-underscore-to-camel-case: true # DB 컬럼명과 자바 필드명 자동 매핑
+    default-statement-timeout: 30
+    default-fetch-size: 100 # 기본 페치 사이즈 설정 (대량 데이터 조회 시 성능 향상)
+
 # --- 로깅 설정 ---
 logging:
   level:

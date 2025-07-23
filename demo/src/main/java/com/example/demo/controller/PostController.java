@@ -32,12 +32,12 @@ public class PostController {
         */ 
         return postService.postList();
     }
-    @GetMapping("/{postId}")
-    public Post postDetail(@PathVariable String postId){
-        return new Post(UUID.randomUUID(), "블로그 제목", "블로그 내용...", "작성자", LocalDateTime.now());
-    }
-    @GetMapping("/update")
-    public Post updatePost(@RequestParam String postId){
-        return new Post(UUID.randomUUID(), "수정된 블로그 제목", "수정된 블로그 내용", "작성자", LocalDateTime.now());
-    }
+    // @GetMapping("/{postId}")
+    // public Post postDetail(@PathVariable String postId){
+    //     return new Post(UUID.randomUUID(), "블로그 제목", "블로그 내용...", "작성자", LocalDateTime.now());
+    // }
+    // @GetMapping("/update")
+    // public Post updatePost(@RequestParam String postId){
+    //     return new Post(UUID.randomUUID(), "수정된 블로그 제목", "수정된 블로그 내용", "작성자", LocalDateTime.now());
+    // }
 }
