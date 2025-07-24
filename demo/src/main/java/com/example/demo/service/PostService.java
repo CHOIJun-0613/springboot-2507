@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.mapper.PostMapper;
 import com.example.demo.model.Post;
-//import com.example.demo.repository.PostRepository;
+import com.example.demo.repository.PostRepository;
 
 
 import lombok.RequiredArgsConstructor;

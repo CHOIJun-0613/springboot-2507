@@ -6,8 +6,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver # MySQL 데이터베이스 드라이버 클래스입니다.
     url: jdbc:mysql://localhost:3306/devdb?useSSL=false&serverTimezone=Asia/Seoul # 개발환경 MySQL 서버 접속 주소입니다.
-    username: mysqluser # 로컬 MySQL 접속 계정입니다.
-    password: '#skcc06433' # 로컬 MySQL 접속 비밀번호입니다.
+    username: devuser # 로컬 MySQL 접속 계정입니다.
+    password: devpass # 로컬 MySQL 접속 비밀번호입니다.
 
   # --- 로컬용 JPA 및 Hibernate 설정 ---
   jpa:
@@ -25,4 +25,9 @@ logging:
     root: INFO # 전체 로깅 레벨의 기본값입니다.
     '[org.springframework.web]': INFO # Spring Web MVC 관련 로그 레벨을 설정합니다.
     '[com.example.demo]': DEBUG # 개발 중인 애플리케이션 패키지의 로그 레벨을 DEBUG로 설정하여 상세한 로그를 확인합니다.
+
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/h2/post.xml
+  configuration:
+    map-underscore-to-camel-case: true
 
