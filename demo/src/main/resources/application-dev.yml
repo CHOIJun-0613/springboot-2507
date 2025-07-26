@@ -2,14 +2,14 @@ spring:
   application:
     name: demo-dev # 애플리케이션의 이름을 지정합니다.
   # --- 개발용 MySQL 데이터베이스 설정 ---
-  # --- 로컬 MySQL 데이터베이스 설정 예시 ---
+  # --- DEV MySQL 데이터베이스 설정 예시 ---
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver # MySQL 데이터베이스 드라이버 클래스입니다.
     url: jdbc:mysql://localhost:3306/devdb?useSSL=false&serverTimezone=Asia/Seoul # 개발환경 MySQL 서버 접속 주소입니다.
-    username: devuser # 로컬 MySQL 접속 계정입니다.
-    password: devpass # 로컬 MySQL 접속 비밀번호입니다.
+    username: devuser # DEV MySQL 접속 계정입니다.
+    password: ENC(U+EaTOOBC9svNUwe/hM6zw==) # DEV MySQL 접속 비밀번호입니다.
 
-  # --- 로컬용 JPA 및 Hibernate 설정 ---
+  # --- DEV환경 JPA 및 Hibernate 설정 ---
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect # MySQL 8.x 버전에 맞는 Hibernate 방언을 설정합니다.
     hibernate:

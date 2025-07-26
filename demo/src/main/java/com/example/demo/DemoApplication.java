@@ -60,7 +60,7 @@ public class DemoApplication  {
                     ));
                     postRepository.save(new Post(
                             UUID.randomUUID(),
-                            "title 3",
+                            "title  3",
                             "블로그 내용 3",
                             "작성자3",
                             LocalDateTime.now()

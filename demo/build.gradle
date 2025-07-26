@@ -33,6 +33,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3' // MyBatis Starter 추가
+	implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5' // Jasypt 추가
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'com.mysql:mysql-connector-j'
@@ -40,12 +41,14 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	testCompileOnly 'org.projectlombok:lombok' // 테스트 코드에서 Lombok 사용을 위해 추가
+	testAnnotationProcessor 'org.projectlombok:lombok' // 테스트 코드에서 Lombok 어노테이션 프로세서를 사용하기 위해 추가
 
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
-	enabled = false // test Task 제외 하고 빌드
+	//enabled = false // test Task 제외 하고 빌드
 	// 테스트 실행 시 'test' 프로필을 활성화하도록 시스템 속성 설정
 	//systemProperty 'spring.profiles.active', 'test'
 }
