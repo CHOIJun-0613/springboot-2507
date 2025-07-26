@@ -46,35 +46,35 @@ public class DemoApplication  {
                 if (postRepository.count() == 0) {
                     postRepository.save(new Post(
                             UUID.randomUUID(),
-                            "첫 번째 블로그",
+                            "title1",
                             "블로그 내용 1",
                             "작성자1",
                             LocalDateTime.now()
                     ));
                     postRepository.save(new Post(
                             UUID.randomUUID(),
-                            "두 번째 블로그",
+                            "title2",
                             "블로그 내용 2",
                             "작성자2",
                             LocalDateTime.now()
                     ));
                     postRepository.save(new Post(
                             UUID.randomUUID(),
-                            "세 번째 블로그",
+                            "title 3",
                             "블로그 내용 3",
                             "작성자3",
                             LocalDateTime.now()
                     ));
                     postRepository.save(new Post(
                             UUID.randomUUID(),
-                            "네 번째 블로그",
+                            "title 4",
                             "블로그 내용 4",
                             "작성자4",
                             LocalDateTime.now()
                     ));
                     postRepository.save(new Post(
                             UUID.randomUUID(),
-                            "다섯 번째 블로그",
+                            "title 5",
                             "블로그 내용 5",
                             "작성자5",
                             LocalDateTime.now()

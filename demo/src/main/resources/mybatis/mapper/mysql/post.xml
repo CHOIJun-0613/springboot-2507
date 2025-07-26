@@ -18,5 +18,11 @@
         ORDER BY created_date_time DESC
     </select>
 
+    <select id="findByTitle" parameterType="java.lang.String" resultMap="PostResultMap">
+        SELECT post_id, title, contents, author, created_date_time
+        FROM post
+        WHERE title LIKE CONCAT('%', #{title}, '%')
+        ORDER BY created_date_time DESC
+    </select>
 
 </mapper>

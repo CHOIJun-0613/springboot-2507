@@ -10,4 +10,6 @@ import com.example.demo.model.Post;
 public interface PostMapper {
     public List<Post> listPost();
 
+    public List<Post> findByTitle(String title);
+
 }
