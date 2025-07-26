@@ -18,4 +18,4 @@ server:
 
 spring:
   profiles:
-    active: local # 현재 활성화된 프로필을 'dev'로 설정합니다.
+    active: dev # 현재 활성화된 프로필을 'dev'로 설정합니다.

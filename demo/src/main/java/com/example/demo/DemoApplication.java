@@ -9,6 +9,8 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 
 import com.example.demo.model.Post;
 import com.example.demo.repository.PostRepository;
@@ -19,10 +21,9 @@ import lombok.RequiredArgsConstructor;
 @SpringBootApplication
 @MapperScan("com.example.demo.mapper")
 @RequiredArgsConstructor
-public class DemoApplication implements CommandLineRunner {
-//public class DemoApplication  {
+public class DemoApplication  {
 
-    private final PostRepository postRepository;
+    //private final PostRepository postRepository;
 
     // 애플리케이션 시작 시 타임존을 KST로 설정
     @PostConstruct
@@ -36,11 +37,51 @@ public class DemoApplication implements CommandLineRunner {
         SpringApplication.run(DemoApplication.class, args);
     }
 
-    @Override
-    public void run(String... args) throws Exception {
-        // 초기 데이터 세팅 또는 애플리케이션 시작 시 실행할 로직을 작성합니다.
-        postRepository.save(new Post(UUID.randomUUID(), "첫 번째 게시글", "내용1","작성자1", LocalDateTime.now()));
-        postRepository.save(new Post(UUID.randomUUID(), "두 번째 게시글", "내용2","작성자2", LocalDateTime.now()));
-        postRepository.save(new Post(UUID.randomUUID(), "세 번째 게시글", "내용3","작성자3" ,LocalDateTime.now()));
+    @Bean
+    @Profile("dev")
+    public CommandLineRunner initPostData(PostRepository postRepository) {
+        return new CommandLineRunner() {
+            @Override
+            public void run(String[] args) throws Exception {
+                if (postRepository.count() == 0) {
+                    postRepository.save(new Post(
+                            UUID.randomUUID(),
+                            "첫 번째 블로그",
+                            "블로그 내용 1",
+                            "작성자1",
+                            LocalDateTime.now()
+                    ));
+                    postRepository.save(new Post(
+                            UUID.randomUUID(),
+                            "두 번째 블로그",
+                            "블로그 내용 2",
+                            "작성자2",
+                            LocalDateTime.now()
+                    ));
+                    postRepository.save(new Post(
+                            UUID.randomUUID(),
+                            "세 번째 블로그",
+                            "블로그 내용 3",
+                            "작성자3",
+                            LocalDateTime.now()
+                    ));
+                    postRepository.save(new Post(
+                            UUID.randomUUID(),
+                            "네 번째 블로그",
+                            "블로그 내용 4",
+                            "작성자4",
+                            LocalDateTime.now()
+                    ));
+                    postRepository.save(new Post(
+                            UUID.randomUUID(),
+                            "다섯 번째 블로그",
+                            "블로그 내용 5",
+                            "작성자5",
+                            LocalDateTime.now()
+                    ));
+ 
+                }
+            }
+        };
     }
 }
